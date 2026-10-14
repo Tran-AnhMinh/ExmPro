@@ -1,0 +1,13 @@
+<section class="add-area">
+    <!-- <input type="text" placeholder="Enter a task" class="ip-task-name" />
+    <button class="btn-save-task">Save</button> -->
+    <input type="text" placeholder="Thêm công việc" class="ip-task-name" [(ngModel)]="name" (keyup.enter)="addTask()"/>
+    <button class="btn-save-task" (click)="addTask()">Thêm</button>
+</section>  
+<section class="sumupArea">
+    <p>
+        Con <span class="complete-num">{{ taskState.incompleteCount() }}</span>
+        / <span class="total-num">{{ taskState.totalCount() }}</span>
+        việc chưa làm
+    </p>
+</section>

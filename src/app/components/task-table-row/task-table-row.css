@@ -1,0 +1,22 @@
+/* td{
+    justify-content: center;
+    align-items: center;
+} */
+
+task-table-row-box{
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #3385f4;
+}
+
+.completed-class{
+    color: gray;
+}
+
+button{
+    border: none;
+    padding: 5px 10px;
+    margin: 0 5px;
+    cursor: pointer;
+}

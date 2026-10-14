@@ -1,0 +1,33 @@
+<td class="task-table-row-box">
+  <input type="checkbox" [checked]="taskDescription.completed" (change)="onToggle()">
+</td>
+
+<td class="task-table-row-box">
+  @if (isEditing) {
+  <input type="text" [(ngModel)]="editingName" (keyup.enter)="onSave()" (keyup.escape)="onCancel()" required="khong duoc de trong"/>
+  } @else {
+    @if(taskDescription.completed){
+      <span class="completed-class"><del>{{ taskDescription.name }}</del></span>
+    }
+    @else {
+      <span>{{ taskDescription.name }}</span>
+    }
+  }
+</td>
+
+<td class="task-table-row-box">
+  <p>{{taskDescription.timeCreated|date:'dd/MM/yyyy'}}</p>
+</td>
+
+<td class="task-table-row-box">
+  @if(isEditing){
+    <button (click)="onCancel()">Cancel</button>
+    <button (click)="onSave()">Save</button>
+  } @else {
+    <button (click)="onEdit()">Edit</button>
+  }
+</td>
+
+<td class="task-table-row-box">
+  <button (click)="onDelete()">Delete</button>
+</td>

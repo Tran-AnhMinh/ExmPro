@@ -1,0 +1,42 @@
+<section>
+  <div class="filter-area">
+    <label class="filter-label">
+      <input class="filter-radio" type="radio" name="filter" value="all" (select)="onShowAll()"/> Tất cả
+    </label>
+    <label class="filter-label">
+      <input class="filter-radio" type="radio" name="filter" value="incomplete" (select)="onShowIncomplete()"/> Chưa hoàn thành
+    </label>
+    <label class="filter-label">
+      <input class="filter-radio" type="radio" name="filter" value="complete" (select)="onShowComplete()"/> Hoàn thành
+    </label>
+  </div>
+</section>
+
+<table class="task-table">
+  <thead>
+    <tr>
+      <th class="task-table-header" style="width: 50px;">Hoàn thành</th>
+      <th class="task-table-header" >
+        <p>Công việc</p>
+        <button (click)="onSortByName()">
+          <img src="images\sort.png" width="16" height="16" alt="Sort Icon" class="sort-icon">
+        </button>
+      </th>
+      <th class="task-table-header">
+        <p>Thời gian tạo</p>
+        <button (click)="onSortByTime()">
+          <img src="images\sort.png" width="16" height="16" alt="Sort Icon" class="sort-icon">
+        </button>
+      </th>
+      <th class="task-table-header">Sửa</th>
+      <th class="task-table-header">Xoá</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (task of dataSource; track task.id) {
+    <tr app-task-table-row [taskDescription]="task" (toggleComplete)="onToggleComplete($event)"
+      (editTask)="onEditTask($event)" (deleteTask)="onDeleteTask($event)">
+    </tr>
+    }
+  </tbody>
+</table>

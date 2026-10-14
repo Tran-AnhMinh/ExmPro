@@ -1,0 +1,28 @@
+.task-table{
+    justify-content: center;
+    width: 70%;
+    height: 100%;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #3385f4;
+    margin-top: 20px;
+}
+
+.task-table-header{
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #3385f4;
+    
+}
+section button{
+    border: none;
+    padding: 5px 10px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.filter-radio:selected{
+    background-color: #3385f4;
+    color: white;
+    border: 1px solid #3385f4;  
+}
