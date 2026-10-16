@@ -63,12 +63,36 @@ export class TaskStateService {
     }
 
     showAll(): void {
+        this.tasks = signal<TaskDescription[]>(
+            (DataTask.getItem('tasks') || []).map((t: any, index: number) => ({
+                id: t.id ?? (Date.now() + index),
+                name: t.name ?? '',
+                timeCreated: t.timeCreated ? new Date(t.timeCreated) : new Date(),
+                completed: Boolean(t.completed)
+            }))
+        );
         this.tasks.update(list => [...list]);
     }
     showIncomplete(): void {
+        this.tasks = signal<TaskDescription[]>(
+            (DataTask.getItem('tasks') || []).map((t: any, index: number) => ({
+                id: t.id ?? (Date.now() + index),
+                name: t.name ?? '',
+                timeCreated: t.timeCreated ? new Date(t.timeCreated) : new Date(),
+                completed: Boolean(t.completed)
+            }))
+        );
         this.tasks.update(list => list.filter(t => !t.completed));
     }
     showComplete(): void {
+        this.tasks = signal<TaskDescription[]>(
+            (DataTask.getItem('tasks') || []).map((t: any, index: number) => ({
+                id: t.id ?? (Date.now() + index),
+                name: t.name ?? '',
+                timeCreated: t.timeCreated ? new Date(t.timeCreated) : new Date(),
+                completed: Boolean(t.completed)
+            }))
+        );
         this.tasks.update(list => list.filter(t => t.completed));
     }
 

@@ -4,7 +4,12 @@
 
 <td class="task-table-row-box">
   @if (isEditing) {
-  <input type="text" [(ngModel)]="editingName" (keyup.enter)="onSave()" (keyup.escape)="onCancel()" required="khong duoc de trong"/>
+  <div class="edit-box">
+    <input type="text" [(ngModel)]="editingName" [class.input-error]="errorMessage" (input)="clearError()" (keyup.enter)="onSave()" (keyup.escape)="onCancel()"/>
+    @if (errorMessage) {
+      <span class="error-msg">{{ errorMessage }}</span>
+    }
+  </div>
   } @else {
     @if(taskDescription.completed){
       <span class="completed-class"><del>{{ taskDescription.name }}</del></span>

@@ -11,9 +11,9 @@ import { DataTask } from '../../services/data-task.service';
 })
 export class HeadBar {
     name = '';
+    errorMessage = '';
 
     taskState = inject(TaskStateService);
-
 
     get complete_num(): number {
         return this.taskState.tasks().filter((task: any) => !task.completed).length;
@@ -25,15 +25,20 @@ export class HeadBar {
 
     addTask() {
         const taskName = this.name.trim();
-        const taskTime = new Date();
-        if (taskName) {
-            this.taskState.addTask({ id: Date.now(), name: taskName, timeCreated: taskTime, completed: false });
-            console.log('Thêm công việc:', taskName, 'vào lúc', taskTime);
-            this.name = '';
-
-        } else {
-            console.log('Vui lòng nhập tên công việc.');
+        if (!taskName) {
+            this.errorMessage = 'Tên công việc không được để trống';
+            return;
         }
+
+        const taskTime = new Date();
+        this.taskState.addTask({ id: Date.now(), name: taskName, timeCreated: taskTime, completed: false });
+        this.name = '';
+        this.errorMessage = '';
     }
 
+    clearError() {
+        if (this.errorMessage) {
+            this.errorMessage = '';
+        }
+    }
 }

@@ -3,6 +3,7 @@ import { MatTableModule } from '@angular/material/table';
 import { TaskTableRow } from '../task-table-row/task-table-row';
 import { TaskDescription } from '../../shares/task-description';
 import { TaskStateService } from '../../services/task-state.service';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 export interface Task {
@@ -16,9 +17,10 @@ export interface Task {
   selector: 'app-task-table',
   styleUrl: './task-table.css',
   templateUrl: './task-table.html',
-  imports: [MatTableModule, TaskTableRow],
+  imports: [MatTableModule, TaskTableRow, MatRadioModule],
 })
 export class TaskTable {
+  selectedOption = 'all';
   taskState = inject(TaskStateService);
   get dataSource() { return this.taskState.tasks(); }
   onToggleComplete(task: TaskDescription): void {

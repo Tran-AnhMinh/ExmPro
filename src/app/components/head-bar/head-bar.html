@@ -1,7 +1,10 @@
 <section class="add-area">
-    <!-- <input type="text" placeholder="Enter a task" class="ip-task-name" />
-    <button class="btn-save-task">Save</button> -->
-    <input type="text" placeholder="Thêm công việc" class="ip-task-name" [(ngModel)]="name" (keyup.enter)="addTask()"/>
+    <div class="input-box">
+        <input type="text" placeholder="Thêm công việc" class="ip-task-name" [class.input-error]="errorMessage" required [(ngModel)]="name" (input)="clearError()" (keyup.enter)="addTask()"/>
+        @if (errorMessage) {
+            <span class="error-msg">{{ errorMessage }}</span>
+        }
+    </div>
     <button class="btn-save-task" (click)="addTask()">Thêm</button>
 </section>  
 <section class="sumupArea">

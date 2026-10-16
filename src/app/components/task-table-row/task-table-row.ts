@@ -20,25 +20,41 @@ export class TaskTableRow {
 
   isEditing = false;
   editingName = '';
+  errorMessage = '';
 
   onToggle(): void {
     this.toggleComplete.emit(this.taskDescription);
     this.isEditing = false;
+    this.errorMessage = '';
   }
 
   onEdit(): void {
     this.isEditing = true;
     this.editingName = this.taskDescription.name;
+    this.errorMessage = '';
   }
 
   onSave(): void {
-    this.taskDescription.name = this.editingName;
+    const trimmedName = this.editingName.trim();
+    if (!trimmedName) {
+      this.errorMessage = 'Tiêu đề không được để trống';
+      return;
+    }
+    this.taskDescription.name = trimmedName;
     this.editTask.emit(this.taskDescription);
     this.isEditing = false;
+    this.errorMessage = '';
   }
 
   onCancel(): void {
     this.isEditing = false;
+    this.errorMessage = '';
+  }
+
+  clearError(): void {
+    if (this.errorMessage) {
+      this.errorMessage = '';
+    }
   }
 
   onDelete(): void {

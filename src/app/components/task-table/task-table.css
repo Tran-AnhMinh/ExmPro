@@ -12,8 +12,36 @@
     text-align: center;
     padding: 10px;
     border: 1px solid #3385f4;
-    
 }
+
+.task-table-header p {
+    display: inline-block;
+    margin: 0;
+    vertical-align: middle;
+}
+
+.task-table-header button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    margin-left: 6px;
+    padding: 4px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.task-table-header button:hover {
+    background-color:  #71d7dc;
+}
+
+.task-table-header button:active {
+    transform: scale(0.95);
+}
+
 section button{
     border: none;
     padding: 5px 10px;
@@ -21,8 +49,35 @@ section button{
     cursor: pointer;
 }
 
-.filter-radio:selected{
-    background-color: #3385f4;
-    color: white;
-    border: 1px solid #3385f4;  
+mat-radio-button[value="all"] {
+  --mat-radio-unselected-icon-color: #90caf9;
+  --mat-radio-unselected-hover-icon-color: #1976d2;
+  --mat-radio-ripple-color: #1976d2;
+  --mat-radio-selected-icon-color: #1976d2;
+  --mat-radio-selected-hover-icon-color: #1565c0;
+  --mat-radio-selected-focus-icon-color: #1565c0;
+  --mat-radio-selected-pressed-icon-color: #0d47a1;
+  --mat-radio-checked-ripple-color: #1976d2;
+}
+
+mat-radio-button[value="incomplete"] {
+  --mat-radio-unselected-icon-color: #ef9a9a;
+  --mat-radio-unselected-hover-icon-color: #e53935;
+  --mat-radio-ripple-color: #e53935;
+  --mat-radio-selected-icon-color: #e53935;
+  --mat-radio-selected-hover-icon-color: #d32f2f;
+  --mat-radio-selected-focus-icon-color: #d32f2f;
+  --mat-radio-selected-pressed-icon-color: #b71c1c;
+  --mat-radio-checked-ripple-color: #e53935;
+}
+
+mat-radio-button[value="complete"] {
+  --mat-radio-unselected-icon-color: #a5d6a7;
+  --mat-radio-unselected-hover-icon-color: #43a047;
+  --mat-radio-ripple-color: #43a047;
+  --mat-radio-selected-icon-color: #43a047;
+  --mat-radio-selected-hover-icon-color: #388e3c;
+  --mat-radio-selected-focus-icon-color: #388e3c;
+  --mat-radio-selected-pressed-icon-color: #1b5e20;
+  --mat-radio-checked-ripple-color: #43a047;
 }

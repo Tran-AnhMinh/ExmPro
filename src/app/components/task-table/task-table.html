@@ -1,16 +1,13 @@
-<section>
-  <div class="filter-area">
-    <label class="filter-label">
-      <input class="filter-radio" type="radio" name="filter" value="all" (select)="onShowAll()"/> Tất cả
-    </label>
-    <label class="filter-label">
-      <input class="filter-radio" type="radio" name="filter" value="incomplete" (select)="onShowIncomplete()"/> Chưa hoàn thành
-    </label>
-    <label class="filter-label">
-      <input class="filter-radio" type="radio" name="filter" value="complete" (select)="onShowComplete()"/> Hoàn thành
-    </label>
-  </div>
-</section>
+<!-- <section>
+  <button (click)="onShowAll()">tất cả</button>
+  <button (click)="onShowIncomplete()">chưa hoàn thành</button>
+  <button (click)="onShowComplete()">hoàn thành</button>
+</section> -->
+<mat-radio-group >
+  <mat-radio-button (click)="onShowAll()" value="all" checked>Tất cả</mat-radio-button>
+  <mat-radio-button (click)="onShowIncomplete()" value="incomplete">Chưa hoàn thành</mat-radio-button>
+  <mat-radio-button (click)="onShowComplete()" value="complete">Hoàn thành</mat-radio-button>
+</mat-radio-group>
 
 <table class="task-table">
   <thead>
